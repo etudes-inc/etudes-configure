@@ -1,0 +1,770 @@
+<style type="text/css" media="all">
+#configure_publication_published
+{
+	background-position: center left;
+	background-repeat: no-repeat;
+	background-image: url(support/icons/publish.png);
+	padding-left: 24px;
+}
+#configure_publication_unpublished
+{
+	background-position: center left;
+	background-repeat: no-repeat;
+	background-image: url(support/icons/closed.gif);
+	padding-left: 24px;
+}
+#configure_publication_unpublished_willopen
+{
+	background-position: center left;
+	background-repeat: no-repeat;
+	background-image: url(support/icons/calendar.png);
+	padding-left: 24px;
+}
+
+#configure_links_table th,
+#configure_links_table td
+{
+	text-align: left;
+	padding-right: 10px;
+}
+#configure_base_date_setting_table th,
+#configure_base_date_setting_table td
+{
+	text-align: left;
+	padding-right: 32px;
+}
+#configure_base_date_table th,
+#configure_base_date_table td
+{
+	text-align: left;
+	padding-right: 32px;
+}
+.e3_kbd_selected
+{
+	border: 2px solid #9a661f;
+}
+#configure_roster
+{
+	background:url(support/icons/group.png) left top no-repeat;
+	padding-left: 20px;
+}
+.configure_import_tools_choice_all
+{
+	margin-left: 20px;
+	color: black;
+	font-weight: normal;
+	font-size: 13px;
+}
+</style>
+
+<!-- just one mode, so here it is - the rest is dialogs -->
+<div class="e3_tool_header">
+	<div id="configure_site_title_link" class="e3_tool_mode_title e3_offstage">
+		<span class="e3_data_header">Site: </span><a href="" id="configure_site_title_l" class="e3_toolUiLink"></a>
+	</div>
+	<div class="e3_tool_header_right">
+		<a id="configure_roster" href="" class="e3_toolUiLink e3_offstage">Roster</a>
+	</div>
+</div>
+<div style="display:table; width: 100%;">
+	<div style="display:table-row">
+		<div style="display:table-cell; width:48%;">
+			<div class="e3_configurationFeature">
+				<div class="e3_configurationFeature_frame">
+					<div class="e3_configurationFeature_title">
+						<a id="configure_appearance_link" href="" class="e3_tool_configure e3_toolUiLink" title="Edit Appearance">Edit</a>
+						Appearance
+					</div>
+				</div>
+				<div class="e3_configurationFeature_body">
+					<div class="e3_configure_set">
+						<div class="e3_configure_set_row">
+							<div class="e3_configure_set_entry_header">Skin:</div>
+							<div class="e3_configure_set_entry_field"><span id="configure_skin_setting"></span><br /><img id="configure_skin_setting_sample" src style="padding-top:8px;padding-bottom:16px;" />
+							</div>
+						</div>
+					</div>					
+				</div>
+			</div>
+			<div class="e3_configurationFeature">
+				<div class="e3_configurationFeature_frame">
+					<div class="e3_configurationFeature_title">
+						<a id="configure_tools_link" href="" class="e3_tool_configure e3_toolUiLink" title="Edit Tools">Edit</a>
+						Tools
+					</div>
+					<div class="e3_configurationFeature_frame_right">
+					</div>
+				</div>
+				<div class="e3_configurationFeature_body">
+					<ul id="configure_tools_setting" class="e3_configure_setting">
+					</ul>
+				</div>
+			</div>
+			<div class="e3_configurationFeature">
+				<div class="e3_configurationFeature_frame">
+					<div class="e3_configurationFeature_title">
+						<a id="configure_links_link" href="" class="e3_tool_configure e3_toolUiLink" title="Edit Site Links">Edit</a>
+						Site Links
+					</div>
+					<div class="e3_configurationFeature_frame_right">
+					</div>
+				</div>
+				<div class="e3_configurationFeature_body">
+					<div class="e3_configure_setting">
+						<dl id="configure_links_list">
+						</dl>
+					</div>
+				</div>
+			</div>
+		    <div class="e3_configurationFeature">
+				<div class="e3_configurationFeature_frame">
+					<div class="e3_configurationFeature_title">
+						<a id="configure_3Party_link" href="" class="e3_tool_configure e3_toolUiLink" title="External Services">Edit</a>
+						 External Services
+					</div>
+					<div class="e3_configurationFeature_frame_right">
+					</div>
+				</div>
+				<div class="e3_configurationFeature_body">
+					<div class="e3_configure_setting">
+						<dl id="configure_3Party_list">
+						</dl>
+					</div>
+				</div>	
+			</div>
+		</div>	
+		<div style="display:table-cell; width:4%;">&nbsp;</div>
+		<div style="display:table-cell; width:48%;">
+			<div class="e3_configurationFeature_frame">
+				<div class="e3_configurationFeature_title">Prepare your site for the new term</div>
+				<div class="e3_configurationFeature_frame_right"></div>
+			</div>
+			<div class="e3_configurationFeature">
+				<div class="e3_configurationFeature_frame">
+					<div class="e3_configurationFeature_title">1. Import Content</div>
+					<div class="e3_configurationFeature_frame_right"></div>
+				</div>
+				<div class="e3_configurationFeature_body">
+					<div class="e3_configure_step">
+						You may import content from selected tools from other sites.
+						<a id="configure_import_site_link" href="" title="Import Content from Another Site">Import from Site</a>
+					</div>
+					<div class="e3_configure_step">
+						You may upload content packaged from other systems.
+						<a id="configure_upload_package_link" href="" title="Upload Content Package">Import from File</a>
+					</div>
+				</div>
+			</div>
+			<div class="e3_configurationFeature">
+				<div class="e3_configurationFeature_frame">
+					<div class="e3_configurationFeature_title">
+						<a id="configure_base_date_link" href="" class="e3_tool_configure e3_toolUiLink" title="Edit Base Date">Edit</a>
+						2. Set Base Date
+					</div>
+				</div>
+				<div class="e3_configurationFeature_body">
+				<div id="configure_base_date_none" class="e3_offstage" style="margin-bottom: 8px;">You have no content with dates in the site.</div>
+					<span class="e3_data_header">Base Date:</span> <span id="configure_base_date_setting" class="e3_configure_setting"></span>
+					<table id="configure_base_date_setting_table" class="e3_configure_setting">
+						<thead>
+							<tr>
+								<th>Tool</th>
+								<th>Date Range</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="e3_configurationFeature">
+				<div class="e3_configurationFeature_frame">
+					<div class="e3_configurationFeature_title">
+						<a id="configure_publication_link" href="" class="e3_tool_configure e3_toolUiLink" title="Edit Site Publication">Edit</a>
+						3. Publish
+					</div>
+				</div>
+				<div class="e3_configurationFeature_body">
+					<div id="configure_publication_published" class="e3_configure_setting e3_offstage">
+						Published
+					</div>
+					<div id="configure_publication_unpublished" class="e3_configure_setting e3_offstage">
+						Closed
+					</div>
+					<div id="configure_publication_unpublished_willopen" class="e3_configure_setting e3_offstage">
+						Will Open
+					</div>
+					<div class="e3_configure_set">
+						<div class="e3_configure_set_row">
+							<div class="e3_configure_set_entry_header">Publish On:</div>
+							<div class="e3_configure_set_entry_field" id="configure_publication_publish_on"></div>
+						</div>
+						<div class="e3_configure_set_row">
+							<div class="e3_configure_set_entry_header">Unpublish On:</div>
+							<div class="e3_configure_set_entry_field" id="configure_publication_unpublish_on"></div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+</div>
+<div id="configure_navbar" class="e3_tool_navbar">
+</div>
+
+<div id="configure_appearance_dialog" title="Appearance">
+	<div class="e3_dialog_instructions e3_wide">Select the skin to use for this site.</div>
+		<div class="e3_dialog_section">
+	 		<div class="e3_dialog_header">Skin</div>
+			<div class="e3_dialog_radio_set" style="display: table; width: 80%">
+			<div style="display: table-cell;">
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="COG">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_31" value="COG" />
+					<label for="configure_edit_skin_choice_31">Cogswell College<br /><img src="/library/skin/cog/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="COS">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_32" value="COS" />
+					<label for="configure_edit_skin_choice_32">College of the Siskiyous<br /><img src="/library/skin/cos/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="FH">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_33" value="FH" />
+					<label for="configure_edit_skin_choice_33">Foothill College<br /><img src="/library/skin/fh/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="IVC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_34" value="IVC" />
+					<label for="configure_edit_skin_choice_34">Imperial Valley College<br /><img src="/library/skin/ivc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="LAHC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_35" value="LAHC" />
+					<label for="configure_edit_skin_choice_35">Los Angeles Harbor College<br /><img src="/library/skin/lahc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="MEND">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_36" value="MENDO" />
+					<label for="configure_edit_skin_choice_36">Mendocino College<br /><img src="/library/skin/mendo/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="SJDC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_38" value="SJDC" />
+					<label for="configure_edit_skin_choice_38">San Joaquin Delta College<br /><img src="/library/skin/sjdc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="WLAC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_39" value="WLAC" />
+					<label for="configure_edit_skin_choice_39">West Los Angeles College<br /><img src="/library/skin/wlac/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="LTCC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_40" value="LTCC" />
+					<label for="configure_edit_skin_choice_40">Lake Tahoe Community College<br /><img src="/library/skin/ltcc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="TC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_41" value="TAFT" />
+					<label for="configure_edit_skin_choice_41">Taft College<br /><img src="/library/skin/taft/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="ETU">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_42" value="ETUDES" />
+					<label for="configure_edit_skin_choice_42">Etudes<br /><img src="/library/skin/default/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="ECC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_44" value="ECC" />
+					<label for="configure_edit_skin_choice_44">El Camino College<br /><img src="/library/skin/ecc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="LAVC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_45" value="LAVC" />
+					<label for="configure_edit_skin_choice_45">Los Angeles Valley College<br /><img src="/library/skin/lavc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="ELAC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_46" value="ELAC" />
+					<label for="configure_edit_skin_choice_46">East Los Angeles College<br /><img src="/library/skin/elac/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="MCC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_47" value="MCC" />
+					<label for="configure_edit_skin_choice_47">Mira Costa College<br /><img src="/library/skin/mcc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="LACC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_48" value="LACC" />
+					<label for="configure_edit_skin_choice_48">Los Angeles City College<br /><img src="/library/skin/lacc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="LAMCITV">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_51" value="LAMCITV" />
+					<label for="configure_edit_skin_choice_51">Los Angeles Mission College - Instructional Television<br /><img src="/library/skin/lamcitv/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="HC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_52" value="HC" />
+					<label for="configure_edit_skin_choice_52">Hartnell College<br /><img src="/library/skin/hc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="SC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_54" value="SC" />
+					<label for="configure_edit_skin_choice_54">Shasta College<br /><img src="/library/skin/sc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="NLS">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_55" value="NLS" />
+					<label for="configure_edit_skin_choice_55">Nigerian Law School<br /><img src="/library/skin/nls/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="CR">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_57" value="CR" />
+					<label for="configure_edit_skin_choice_57">College of the Redwoods<br /><img src="/library/skin/cr/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="OCC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_58" value="OCC" />
+					<label for="configure_edit_skin_choice_58">Orange Coast College<br /><img src="/library/skin/occ/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="CCC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_59" value="CCC" />
+					<label for="configure_edit_skin_choice_59">Coastline Community College<br /><img src="/library/skin/ccc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry configure_edit_skin_inst" id="GWC">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_60" value="GWC" />
+					<label for="configure_edit_skin_choice_60">Golden West College<br /><img src="/library/skin/gwc/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_default" value="default" />
+					<label for="configure_edit_skin_choice_default">default<br /><img src="/library/skin/default/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_1" value="1-Education" />
+					<label for="configure_edit_skin_choice_1">1-Education<br /><img src="/library/skin/1-Education/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_2" value="2-Knowledge" />
+					<label for="configure_edit_skin_choice_2">2-Knowledge<br /><img src="/library/skin/2-Knowledge/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_3" value="3-Excellence" />
+					<label for="configure_edit_skin_choice_3">3-Excellence<br /><img src="/library/skin/3-Excellence/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_4" value="4-Invention" />
+					<label for="configure_edit_skin_choice_4">4-Invention<br /><img src="/library/skin/4-Invention/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_5" value="5-Questioning" />
+					<label for="configure_edit_skin_choice_5">5-Questioning<br /><img src="/library/skin/5-Questioning/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_6" value="6-Anxiety" />
+					<label for="configure_edit_skin_choice_6">6-Anxiety<br /><img src="/library/skin/6-Anxiety/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_7" value="7-Thinking" />
+					<label for="configure_edit_skin_choice_7">7-Thinking<br /><img src="/library/skin/7-Thinking/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_8" value="8-Science" />
+					<label for="configure_edit_skin_choice_8">8-Science<br /><img src="/library/skin/8-Science/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_9" value="9-Learning" />
+					<label for="configure_edit_skin_choice_9">9-Learning<br /><img src="/library/skin/9-Learning/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_10" value="10-Fire" />
+					<label for="configure_edit_skin_choice_10">10-Fire<br /><img src="/library/skin/10-Fire/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_11" value="11-Acts" />
+					<label for="configure_edit_skin_choice_11">11-Acts<br /><img src="/library/skin/11-Acts/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_12" value="12-Freedom" />
+					<label for="configure_edit_skin_choice_12">12-Freedom<br /><img src="/library/skin/12-Freedom/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_13" value="13-Blackboard" />
+					<label for="configure_edit_skin_choice_13">13-Blackboard<br /><img src="/library/skin/13-Blackboard/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_14" value="14-Boat" />
+					<label for="configure_edit_skin_choice_14">14-Boat<br /><img src="/library/skin/14-Boat/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+			</div>
+			<div style="display: table-cell;">
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_15" value="15-Calmwater" />
+					<label for="configure_edit_skin_choice_15">15-Calmwater<br /><img src="/library/skin/15-Calmwater/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_16" value="16-Columns" />
+					<label for="configure_edit_skin_choice_16">16-Columns<br /><img src="/library/skin/16-Columns/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_17" value="17-Country" />
+					<label for="configure_edit_skin_choice_17">17-Country<br /><img src="/library/skin/17-Country/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_18" value="18-Canals" />
+					<label for="configure_edit_skin_choice_18">18-Canals<br /><img src="/library/skin/18-Canals/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_19" value="19-Moon" />
+					<label for="configure_edit_skin_choice_19">19-Moon<br /><img src="/library/skin/19-Moon/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_20" value="20-Ocean" />
+					<label for="configure_edit_skin_choice_10">20-Ocean<br /><img src="/library/skin/20-Ocean/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_21" value="21-Petals" />
+					<label for="configure_edit_skin_choice_21">21-Petals<br /><img src="/library/skin/21-Petals/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_22" value="22-Pier" />
+					<label for="configure_edit_skin_choice_22">22-Pier<br /><img src="/library/skin/22-Pier/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_23" value="23-Raindrops" />
+					<label for="configure_edit_skin_choice_23">23-Raindrops<br /><img src="/library/skin/23-Raindrops/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_24" value="24-Ruins" />
+					<label for="configure_edit_skin_choice_24">24-Ruins<br /><img src="/library/skin/24-Ruins/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_25" value="25-Santorini" />
+					<label for="configure_edit_skin_choice_25">25-Santorini<br /><img src="/library/skin/25-Santorini/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_26" value="26-Mountains" />
+					<label for="configure_edit_skin_choice_26">26-Mountains<br /><img src="/library/skin/26-Mountains/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_27" value="27-Space" />
+					<label for="configure_edit_skin_choice_27">27-Space<br /><img src="/library/skin/27-Space/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_28" value="28-Tree" />
+					<label for="configure_edit_skin_choice_28">28-Tree<br /><img src="/library/skin/28-Tree/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_29" value="29-Land" />
+					<label for="configure_edit_skin_choice_29">29-Land<br /><img src="/library/skin/29-Land/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_edit_skin_choice" id="configure_edit_skin_choice_30" value="30-World" />
+					<label for="configure_edit_skin_choice_30">30-World<br /><img src="/library/skin/30-World/images/logo_inst.gif" style="padding-top:8px;padding-bottom:16px;" /></label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="configure_tools_dialog" title="Tools">
+	<div class="e3_dialog_instructions e3_wide">Select the tools to include in this site.</div>
+	<div class="e3_dialog_section">
+		<div class="e3_dialog_header">Tools</div>
+		<div class="e3_dialog_radio_set">
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="e3.homepage" id="e3.homepage" />
+				<label for="e3.homepage">Home</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="sakai.coursemap" id="sakai.coursemap" disabled="disabled" />
+				<label for="sakai.coursemap">Coursemap</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="sakai.schedule" id="sakai.schedule" />
+				<label for="sakai.schedule">Schedule</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="sakai.announcements" id="sakai.announcements" />
+				<label for="sakai.announcements">Announcements</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="sakai.syllabus" id="sakai.syllabus" />
+				<label for="sakai.syllabus">Syllabus</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="sakai.melete" id="sakai.melete" />
+				<label for="sakai.melete">Modules</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="sakai.mneme" id="sakai.mneme" />
+				<label for="sakai.mneme">Assignments, Tests and Surveys</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="sakai.jforum.tool" id="sakai.jforum.tool" />
+				<label for="sakai.jforum.tool">Discussion and Private Messages</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="sakai.chat" id="sakai.chat" />
+				<label for="sakai.chat">Chat</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="sakai.resources" id="sakai.resources" />
+				<label for="sakai.resources">Resources</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="e3.gradebook" id="e3.gradebook" />
+				<label for="e3.gradebook">Gradebook</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="checkbox" name="configure_tools_choice" value="sakai.activitymeter" id="sakai.activitymeter" disabled="disabled" />
+				<label for="sakai.activitymeter">Activity Meter</label>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="configure_links_dialog" title="Site Links">
+	<div class="e3_dialog_instructions e3_wide"> Add external links to include on site's left menu.  Drag links using <img style="vertical-align:middle;" src="support/icons/reorder.png" /> to change their order.</div>
+	<div class="e3_dialog_section">
+		<div class="e3_dialog_header">Site Links <a class="e3_toolUiLink" style="float:right; font-size:12px;" id="configure_links_help" href="">Problems With Your Site Links?</a></div>
+		<div class="e3_tool_actions">
+			<ul>
+				<li>
+					<a id="configure_links_add" href="" style="background-image:url(support/icons/add.png);" tabindex="0">Add</a>
+				</li>
+			</ul>
+		</div>
+		<table id="configure_links_table" class="e3_tool_item_table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>URL</th>
+				<th>New Window?</th>				
+				<th>Height</th>
+				<th></th>
+				<th></th>
+				<th></th>
+		</thead>
+		<tbody>
+		</tbody>
+		</table>		
+	</div>		
+</div>
+
+<!-- alert for site links help -->
+<div id="configure_links_helpW"  title="Problems With Your Site Links?" style="display: none;">
+	<div class="e3_wide">
+		Common issues with site links are often due to one of the following: 
+		<ul>
+			<li style="margin-bottom:20px;">If you don't see your web resource's content in the browser window, the URL may not be correct, or the content's server may be down or slow to respond.</li>
+			<li style="margin-bottom:20px;">If your web site opens in a new browser window, it's because the URL has an "http" address. Only pages with an "https" address will open within Etudes in most browsers.</li>
+			<li style="margin-bottom:20px;">If you can't connect to your publisher's website, you may have not entered a valid URL, key and secret. Please contact your Distance Education office for information.</li>			
+		</ul>
+	</div>
+</div>
+<div id="configure_links_invalid" title="Problems Exist">
+	<div class="e3_alert">
+		Before saving, make sure all links have a title and a valid URL.
+	</div>
+</div>
+<div id="configure_lti_links_dialog" title="Link Information">
+	<div class="e3_dialog_instructions e3_wide">Enter information to configure external tool provider.</div>
+	<input type="hidden" id="configure_lti_links_linkIndex" value="" />
+	<div class="e3_dialog_section">		
+		<div class="e3_dialog_header">Configure External Tool</div>
+		<table id="configure_lti_links_table" class="e3_tool_item_table">
+			<tbody>
+			</tbody>	
+		</table>
+	</div>
+</div>
+
+<div id="configure_3Party_helpW"  title="Problems With Your External Services?" style="display: none;">
+	<div class="e3_wide">
+		If you experience difficulties connecting to your external services provider, verify with the vendor that you have the correct URL, key, secret and any parameters. 		 
+	</div>
+</div>
+<div id="configure_3Party_dialog" title="External Services">
+	<div class="e3_dialog_instructions e3_wide">Configure external services providers to be used in the site.</div>
+	<div class="e3_dialog_section">
+		<div class="e3_dialog_header">External Services  <a class="e3_toolUiLink" style="float:right; font-size:12px;" id="configure_3Party_help" href="">Problems With Your External Services?</a></div>
+			<div class="e3_tool_actions">
+			<ul>
+				<li>
+					<a id="configure_3Party_add" href="" style="background-image:url(support/icons/add.png);" tabindex="0">Add</a>
+				</li>
+			</ul>
+		</div>
+		<table id="configure_3Party_table" class="e3_tool_item_table">
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>URL</th>
+				<th></th>
+				<th></th>
+		</thead>
+		<tbody>
+		</tbody>
+		</table>	
+	</div>	
+</div>
+
+<div id="configure_base_date_dialog" title="Base Date">
+	<div class="e3_dialog_instructions e3_wide">Setting a new Base Date adjusts *all* of the dates in the content of your site.</div>
+	<div class="e3_configure_step">
+		For details about the base date feature
+		<a id="configure_base_date_url" href="http://etudes.org/help/instructors/site-setup-base-date" target="_blank" title="View Base Date Instructions">View Instructions</a>
+	</div>
+	<div id="configure_base_date_range_alert" class="e3_alert e3_offstage" style="margin-bottom:20px;">Some tools (in red) have content dates that significantly differ from the rest.<br />Consider adjusting these dates before setting a base date.</div>
+	<div class="e3_dialog_section">
+		<div class="e3_dialog_header">Base Date</div>
+		<table class="e3_configure_setting" id="configure_base_date_table">
+			<thead>
+				<tr>
+					<th>Tool</th>
+					<th>Date Range</th>
+					<th>New Range</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<div class="e3_dialog_section">
+		<div class="e3_configure_set">
+			<div class="e3_configure_set_row">
+				<div class="e3_configure_set_entry_header">Base Date:</div>
+				<div class="e3_configure_set_entry_field" id="configure_base_date_dialog_base_date">Sep 19, 2012</div>
+			</div>
+			<div class="e3_configure_set_row">
+				<div class="e3_configure_set_entry_header">New Base Date:</div>
+				<div class="e3_configure_set_entry_field">
+					<input class="e3_date_input" id="configure_base_date_value" type="text" />
+					<div id="configure_base_date_missing_alert" class="e3_alert e3_offstage">Enter a new base date.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="configure_publication_dialog" title="Site Publication">
+	<div class="e3_dialog_instructions e3_wide">Once published, this site is open to active site members.</div>
+	<div class="e3_dialog_section">
+		<div class="e3_dialog_header">Options</div>
+		<div class="e3_alert e3_offstage" id="configure_publication_option_alert">Select an option before continuing.</div>
+		<div class="e3_dialog_radio_set">
+			<div class="e3_dialog_radio_entry">
+				<input type="radio" name="configure_publication_choice" id="configure_publication_choice_publish" value="publish" />
+				<label for="configure_publication_choice_publish">Publish Now</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="radio" name="configure_publication_choice" id="configure_publication_choice_unpublish" value="unpublish" />
+				<label for="configure_publication_choice_unpublish">Unpublish Now</label>
+			</div>
+			<div class="e3_dialog_radio_entry">
+				<input type="radio" name="configure_publication_choice" id="configure_publication_choice_schedule" value="setdates" />
+				<label for="configure_publication_choice_schedule">Set Publication Dates</label>
+			</div>
+		</div>
+	</div>
+	<div class="e3_dialog_section e3_offstage" id="configure_publication_section_schedule">
+		<div class="e3_dialog_header">Schedule</div>
+		<div class="e3_alert e3_offstage" id="configure_publication_dates_alert">Select a publish and unpublish date before continuing.</div>
+		<div class="e3_configure_set">
+			<div class="e3_configure_set_row">
+				<div class="e3_configure_set_entry_header">Publish Date:</div>
+				<div class="e3_configure_set_entry_field"><input class="e3_datetime_input" id="configure_publication_schedule_publish" type="text" /></div>
+			</div>
+			<div class="e3_configure_set_row">
+				<div class="e3_configure_set_entry_header">Unpublish Date:</div>
+				<div class="e3_configure_set_entry_field"><input class="e3_datetime_input" id="configure_publication_schedule_unpublish" type="text" /></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="configure_import_site_dialog" title="Select Site">
+	<div class="e3_dialog_instructions e3_wide">Select a site to import its content.</div>
+	<div class="e3_dialog_section">
+		<div class="e3_dialog_header">Sites</div>
+		<div class="e3_alert e3_offstage" id="configure_import_site_alert">Select a site before continuing.</div>
+		<div class="e3_tool_items">
+			<table id="configure_importSites_table" class="e3_tool_item_table">
+				<thead />
+				<tbody />
+			</table>
+			<div id="configure_importSites_noSites" class="e3_offstage e3_emptyWarning">
+				You have no Sites
+			</div>
+		</div>
+	</div>
+</div>
+<div id="configure_import_tools_dialog" title="Select Tools">
+	<div class="e3_dialog_instructions e3_wide">Select the tools to import.</div>
+	<div class="e3_dialog_section">
+		<div class="e3_dialog_header">Tools <span class="configure_import_tools_choice_all"><input type="checkbox" id="configure_import_tools_choice_all" name="configure_import_tools_choice" value="all" /><label style="margin-left:10px;" for="configure_import_tools_choice_all">Select All</label></span></div>
+		<div class="e3_alert e3_offstage" id="configure_import_tools_alert">Select some tools before importing.</div>
+		<div class="e3_tool_items">
+			<table id="configure_importSiteTools_table" class="e3_tool_item_table">
+				<thead />
+				<tbody />
+			</table>
+		</div>
+	</div>
+</div>
+<div id="configure_import_alert" title="Import">
+	<div class="e3_dialog_instructions e3_wide">The selected content is now importing into your site.</div>
+	<div class="e3_dialog_section">
+		<div class="e3_dialog_header">Import</div>
+		<div class="e3_configure_set">
+			<div class="e3_configure_set_row">
+				<div class="e3_configure_set_entry_header">From Site:</div>
+				<div class="e3_configure_set_entry_field" id="configure_import_site_title"></div>
+			</div>
+			<div class="e3_configure_set_row">
+				<div class="e3_configure_set_entry_header">Tools:</div>
+				<div class="e3_configure_set_entry_field" id="configure_import_tools"></div>
+			</div>
+		</div>
+		<div id="configure_import_progress" class="e3_working" style="width: 12em;">
+			<img src="support/icons/progress.gif" width="42">
+			Working ...
+		</div>
+		<div id="configure_import_done" class="e3_working e3_offstage">
+			Complete!
+		</div>
+	</div>
+</div>
+<div id="configure_upload_dialog" title="Select Upload">
+	<div class="e3_dialog_instructions e3_wide">Select the type of import package you have, and then browse and upload the file.</div>
+	<form method="post" encType="multipart/form-data" action="" id="configure_upload_dialog_form">
+		<input type="hidden" name="uploadType" value="" id="configure_upload_dialog_form_uploadType" />
+		<input type="hidden" name="siteId" value="" id="configure_upload_dialog_form_siteId" />
+		<div class="e3_dialog_section">
+			<div class="e3_dialog_header">Package Type</div>
+			<div class="e3_alert e3_offstage" id="configure_upload_type_alert">Select the package type.</div>
+			<div class="e3_dialog_radio_set">
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_upload_type_choice" id="configure_upload_type_bb" value="blackboard91" />
+					<label for="configure_upload_type_bb">BlackBoard (Ver. 9.1)</label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_upload_type_choice" id="configure_upload_type_ec" value="ecollege"/>
+					<label for="configure_upload_type_ec">eCollege/Pearson</label>
+				</div>
+				<div class="e3_dialog_radio_entry">
+					<input type="radio" name="configure_upload_type_choice" id="configure_upload_type_moodle19" value="moodle" />
+					<label for="configure_upload_type_moodle19">Moodle (Ver. 1.9 & 2.0)</label>
+				</div>				
+			</div>
+		</div>
+		<div class="e3_dialog_section">
+			<div class="e3_dialog_header">Upload File</div>
+			<div class="e3_alert e3_offstage" id="configure_upload_file_alert">Select a package file.</div>
+			<div><input id="configure_upload_file" type="file" name="upload" accept="text/*" /></div>
+			<div id="configure_ecollege_file">
+				<div class="e3_wide">-- OR -- </div>
+				<input type="button" name="uploadHartnell" value="Browse from Server" /> (Hartnell College Only)
+				<div class="e3_configure_set">
+					<div class="e3_configure_set_row">
+						<div class="e3_configure_set_entry_header">Selected Hartnell File:</div>
+						<div class="e3_configure_set_entry_field" id="configure_upload_dialog_form_selectedfile_title">
+							<input name="selectedfile" type="text" id="configure_upload_dialog_form_selectedfile" size="50" value="" readonly />
+						</div>
+					</div>
+				</div>				
+			</div>			
+		</div>		
+	</form>
+</div>
+
+<div id="configure_upload_alert" title="Import">
+	<div class="e3_dialog_instructions e3_wide">The selected content is now uploading and importing into your site.</div>
+	<div class="e3_dialog_section">
+		<div class="e3_dialog_header">Import</div>
+		<div id="configure_upload_progress" class="e3_working" style="width:156px;">
+			<img src="support/icons/progress.gif" width="42" style="margin-bottom:16px;">
+			Working ...
+		</div>
+		<div id="configure_upload_done" class="e3_working e3_offstage">
+			Complete!
+		</div>
+		<div id="configure_upload_status" style="margin-top:20px;"></div>
+	</div>
+</div>

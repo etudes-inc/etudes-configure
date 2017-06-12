@@ -1,0 +1,35 @@
+{
+	"cdp:status":"0",
+	"config":
+	{
+		"siteId": "123-123-123-123",
+		"skin":"2-Knowledge",
+		"tools":
+		[
+			{"toolId":"sakai.coursemap", "title":"Coursemap"},
+			{"toolId":"sakai.announcements", "title":"Announcements"},
+			{"toolId":"sakai.syllabus", "title":"Syllabus"},
+			{"toolId":"sakai.activitymeter", "title":"Activity Meter"}
+		],
+		"baseDateUrl":"http://www.apple.com",
+		"baseDate":"Sep 19, 2013",
+		"baseDates":
+		[
+			{"tool":"Announcements", "range":"Sep 19, 2013 - Sep 22, 2013", "outRange":"0"},
+			{"tool":"Modules", "range":"Sep 19, 2013 - Sep 22, 2013", "outRange":"0"},
+			{"tool":"Assignments, Tests and Surveys", "range":"Sep 19, 2013 - Sep 22, 2013", "outRange":"0"},
+			{"tool":"Discussions", "range":"Sep 19, 2013 - Sep 22, 2013", "outRange":"0"}
+		],
+		"links":
+		[
+			{"url":"http://www.college.edu/library", "title":"College Library", "popup":"0", "height":"600px"},
+			{"url":"http://mla.edu/docs", "title":"MLA Documentation", "popup":"1", "height":"600px"},
+			{"url":"http://tutortime.com/etudes/welcome.html", "title":"Tutoring Center", "popup":"1", "height":"600px"},
+			{"url":"http://campus.edu/math.html", "title":"Math Lab", "popup":"1", "height":"600px"}
+			{"url":"http://turnitin.com/campus/enter.html", "title":"Turnitin", "popup":"1", "height":"600px"}
+		],
+		"published":"0",
+		"pubDate":"Sep 01, 2012 8:00 AM",
+		"unpubDate":"Nov 22, 2012 11:59 PM"
+	 }
+}

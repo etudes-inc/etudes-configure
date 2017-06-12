@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<registration>
+
+	<tool
+			id="e3.configure"
+			title="Site Setup"
+			description="Site Setup"
+			dispatcher="E3"
+			e3Code="configure">
+
+		<!-- only for maintainer types -->
+		<configuration name="functions.require" value="site.upd" /> 
+
+	</tool>
+
+</registration>
